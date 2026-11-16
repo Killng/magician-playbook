@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3ee">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="魔术接单">
+  <meta name="description" content="个人魔术接单工具：52 条场景话术、常用收藏、差旅报价。">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./app.css">
+  <title>魔术接单 · 我的随身话术库</title>
+  <script src="./data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></symbol><symbol id="i-quote" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M8 6h8M8 10h2m4 0h2M8 14h2m4 0h2M8 18h2m4 0h2"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></symbol><symbol id="i-back" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M8 10H4v11h16V10h-4M12 15V2m-5 5 5-5 5 5"/></symbol><symbol id="i-next" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol></svg>
+<div class="app-shell">
+  <header class="app-header"><a class="brand" href="#library" aria-label="返回话术首页"><span class="brand-symbol">✦</span><span>MAGICIAN’S<br><b>POCKET PLAYBOOK</b></span></a><button class="install-button" id="installButton"><svg><use href="#i-share"/></svg><span>添加桌面</span></button></header>
+  <main>
+    <section id="libraryPage" class="page" aria-labelledby="libraryTitle">
+      <div class="page-heading"><div><p class="eyebrow">我的随身接单工具</p><h1 id="libraryTitle">下一句，怎么说<span>？</span></h1><p class="subtitle">先听需求，再给方案。</p></div><span id="offlineStatus" class="status" role="status">正在准备</span></div>
+      <div class="searchbox"><svg><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="搜话术：砍价、外地、原创…" aria-label="搜索所有话术" autocomplete="off"><button id="clearSearch" class="clear-button" hidden aria-label="清空搜索">×</button></div>
+      <div class="quick-tags" aria-label="常用搜索"><button data-search="便宜">客户砍价</button><button data-search="外地">外地演出</button><button data-search="半年">原创价值</button><button data-search="定金">锁定档期</button></div>
+      <div id="libraryOverview"><div class="package-grid"><button data-item="harry" class="package theme-package"><span>哈利波特主题</span><strong><small>¥</small>1,800</strong><em>30 分钟 · 自研独创</em></button><button data-item="close" class="package"><span>精品近景</span><strong><small>¥</small>1,000</strong><em>时长另行确认</em></button><button data-item="interactive" class="package"><span>互动魔术</span><strong><small>¥</small>300</strong><em>10 分钟</em></button></div><a href="#quote" class="quote-shortcut"><span><svg><use href="#i-quote"/></svg><b>报价计算器</b><small>差旅加价 · 自动合计 · 一键复制</small></span><svg><use href="#i-next"/></svg></a><div class="personal-note"><span>14 年从业经验</span><i></i><span>半年全流程自研主题</span></div><div class="section-label"><h2>场景目录</h2><span id="libraryCount"></span></div><div id="directory" class="directory"></div></div>
+      <div id="searchArea" hidden><div class="section-label"><h2>搜索结果</h2><span id="searchCount" aria-live="polite"></span></div><div id="searchResults" class="list"></div></div>
+      <p class="page-footnote">只复制话术正文；接单提示留给自己。<br>发送前，记得替换【括号】里的内容。</p>
+    </section>
+    <section id="favoritesPage" class="page" hidden aria-labelledby="favoritesTitle"><div class="page-heading"><div><p class="eyebrow">随手收藏，随时用</p><h1 id="favoritesTitle">我的常用话术<span>.</span></h1><p class="subtitle">收藏保存在这台设备。</p></div><span id="favoriteCount" class="count-badge"></span></div><div id="favoritesList" class="list"></div></section>
+    <section id="quotePage" class="page" hidden aria-labelledby="quoteTitle"><div class="page-heading"><div><p class="eyebrow">把费用一次说清楚</p><h1 id="quoteTitle">算一份报价<span>.</span></h1><p class="subtitle">草稿自动保存在本机。</p></div><button id="resetQuote" class="text-button">重置</button></div>
+      <form id="quoteForm" novalidate>
+        <div class="form-card"><label class="field">演出套餐<select id="qPackage" name="package"><option value="harry">哈利波特主题 · 30 分钟 · ¥1800</option><option value="close">精品近景 · 时长待确认 · ¥1000</option><option value="interactive">互动魔术 · 10 分钟 · ¥300</option></select></label><label class="field" id="durationField" hidden>近景的约定时长 / 场次<input id="qDuration" name="duration" placeholder="如：20 分钟 / 1 场" maxlength="100"></label><label class="field">演出日期 / 时段<input id="qDate" name="date" placeholder="如：12 月 6 日 15:00" maxlength="100"></label><label class="field last">城市 / 具体地址<input id="qPlace" name="place" placeholder="如：杭州 · XX 酒店" maxlength="180"></label></div>
+        <div class="section-label"><h2>差旅与加项</h2><span>没有的费用填 0</span></div><div class="form-card"><div class="field-grid"><label class="field">往返交通（元）<input id="qTravel" name="travel" type="text" inputmode="decimal" value="0" maxlength="12" autocomplete="off"></label><label class="field">必要住宿（元）<input id="qHotel" name="hotel" type="text" inputmode="decimal" value="0" maxlength="12" autocomplete="off"></label><label class="field">当地接驳（元）<input id="qLocal" name="local" type="text" inputmode="decimal" value="0" maxlength="12" autocomplete="off"></label><label class="field">路途占时补贴（元）<input id="qTime" name="time" type="text" inputmode="decimal" value="0" maxlength="12" autocomplete="off"></label><label class="field">已协商加项（元）<input id="qExtra" name="extra" type="text" inputmode="decimal" value="0" maxlength="12" autocomplete="off"></label><label class="field">协商优惠（元）<input id="qDiscount" name="discount" type="text" inputmode="decimal" value="0" maxlength="12" autocomplete="off"></label></div><label class="field">费用 / 优惠说明<input id="qNote" name="note" placeholder="如：客户安排接送；加演一场" maxlength="300"></label><label class="field">差旅结算方式<select id="qTravelMode" name="travelMode"><option value="fixed">按本次明细固定金额结算</option><option value="estimate">按实际结算，先约定费用上限</option></select></label><label class="field" id="capField" hidden>交通 + 住宿 + 接驳上限（元）<input id="qCap" name="cap" type="text" inputmode="decimal" placeholder="需大于或等于这三项的预估合计" maxlength="12"></label><label class="field last">预付款比例（%，双方协商）<input id="qDeposit" name="deposit" type="text" inputmode="numeric" value="20" maxlength="3"></label></div>
+        <details class="guide"><summary>外地加价怎么定？</summary><p>占时补贴参考：当日往返可协商 200–400 元；额外占用一天可协商 500–800 元。按实际择一，不叠加。这是可调整的示例，不是固定收费标准。</p><p>客户已经安排车票、住宿或接送，对应费用填 0 并写入说明。交通等费用按实结算时，提前确认上限。</p></details>
+        <div class="quote-result"><div class="result-label">本次报价合计</div><div id="quoteTotal" class="quote-total">¥1,800</div><p id="quoteBreakdown" class="quote-breakdown"></p><div id="quoteError" class="error" role="alert" hidden></div><div class="payment-row"><div><span>预付款</span><strong id="quotePrepay">¥360</strong></div><div><span>尾款</span><strong id="quoteBalance">¥1,440</strong></div></div><button class="primary" id="copyQuote" type="button"><svg><use href="#i-copy"/></svg>复制完整报价</button><button class="text-button preview-button" id="previewQuote" type="button">查看报价正文</button></div>
+      </form><p class="page-footnote">报价按已确认的行程与服务范围填写。<br>完整话术会注明新增需求需另行确认。</p>
+    </section>
+  </main>
+  <nav class="tabbar" aria-label="主要功能"><a href="#library" class="tab active" data-tab="library" aria-current="page"><svg><use href="#i-book"/></svg><span>话术</span></a><a href="#favorites" class="tab" data-tab="favorites"><svg><use href="#i-star"/></svg><span>收藏</span></a><a href="#quote" class="tab" data-tab="quote"><svg><use href="#i-quote"/></svg><span>报价计算</span></a></nav>
+</div>
+<dialog id="scriptsDialog" class="sheet" aria-labelledby="sheetTitle"><header class="sheet-header"><button class="icon-button" id="closeScripts" aria-label="返回目录"><svg><use href="#i-back"/></svg></button><div><p id="sheetKicker" class="eyebrow"></p><h2 id="sheetTitle"></h2></div><button id="expandAll" class="text-button">全展开</button></header><div class="sheet-body"><p id="sheetDescription" class="sheet-description"></p><div id="sheetScripts"></div></div></dialog>
+<dialog id="infoDialog" class="sheet compact-sheet" aria-labelledby="infoTitle"><header class="sheet-header"><div><p class="eyebrow">IPHONE · 随手打开就能用</p><h2 id="infoTitle">放到手机桌面</h2></div><button id="closeInfo" class="text-button">完成</button></header><div class="sheet-body"><div class="install-steps"><div><b>1</b><p>用 <strong>Safari</strong> 打开这个页面。<small>微信内打开时，先选择“在浏览器打开”。</small></p></div><div><b>2</b><p>点 Safari 的<strong>分享按钮</strong> <svg><use href="#i-share"/></svg></p></div><div><b>3</b><p>选择<strong>“添加到主屏幕”</strong>，再点“添加”。<small>如果看到“作为网页 App 打开”，保持开启。</small></p></div></div><p id="installState" class="info-note"></p><div class="info-card"><h3>属于你自己的接单工具</h3><p>不用登录，没有开发者认证。话术随页面保存，收藏和报价草稿保存在本机；清理网站数据或更换手机后，需要重新设置。</p><p>第一次从桌面图标打开时，保持联网，等首页显示“离线可用”。系统清理缓存后，再联网打开一次即可重新缓存。</p></div></div></dialog>
+<dialog id="textDialog" class="sheet compact-sheet" aria-labelledby="textTitle"><header class="sheet-header"><h2 id="textTitle">报价正文</h2><button id="closeText" class="text-button">完成</button></header><div class="sheet-body"><p id="textHint" class="sheet-description"></p><textarea id="textPreview" aria-label="可选择复制的正文" readonly></textarea><button id="copyPreview" class="primary"><svg><use href="#i-copy"/></svg>复制正文</button></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<noscript><p>请在 Safari 中启用 JavaScript 后使用。</p></noscript>
+</body>
+</html>
